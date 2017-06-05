@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\admin;
+use App\Doctor;
+use App\secretaria;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -27,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/home'; /**ahora mismo es un atributo estático*/
 
     /**
      * Create a new controller instance.
@@ -39,6 +42,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    //public function
     /**
      * Get a validator for an incoming registration request.
      *
@@ -53,7 +57,7 @@ class RegisterController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
     }
-
+    //$user = App\User::find(1);
     /**
      * Create a new user instance after a valid registration.
      *
@@ -62,10 +66,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user= User::create([
             'name' => $data['name'],
+            'surname'=> $data['surname'],
             'email' => $data['email'],
+            'dni'=> $data['dni'],
             'password' => bcrypt($data['password']),
         ]);
+        if(isset($data['numcolegiado'])){ //medico
+
+            $doctor = new Doctor($data);
+            $doctor->user_id=$user->id;
+            $doctor->save();
+
+        } elseif(isset($data['address'])){   //secretaria
+
+            $secretaria = new secretaria($data);
+            $secretaria->user_id=$user->id;
+            $secretaria->save();
+
+        } elseif (isset($data['phone']) )   {  //admin
+            $admin = new admin($data);
+            $admin->user_id=$user->id;
+            $admin->save();
+        }
+        return $user;
     }
 }

@@ -15,15 +15,24 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'surname', 'email', 'password', 'dni'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    public function doctor(){
+        return $this -> hasOne('App\doctor');
+    }
+    public function secretaria(){
+        return $this -> hasOne('App\secretaria');
+    }
+    public function admin(){
+        return $this -> hasOne('App\admin');
+    }
+    public function getFullNameAttribute()
+    {
+        return $this->name .' '.$this->surname;
+    }
     protected $hidden = [
         'password', 'remember_token',
     ];
+
 }

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Espe :)</title>
+        <title>Proyecto CGIS</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -13,9 +13,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                background-color: #FFDAB9;
+                color: #2F4F4F;
+                font-family: 'Raleway', Calibri;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -49,6 +49,7 @@
                 font-size: 84px;
             }
 
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -57,38 +58,84 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+
+
             }
 
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .copyright {
+                color: #D98880;
+                text-align: center;
+            }
+
+
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
+    <div class="flex-center position-ref full-height">
+
+            <div class="top-right links">
+
+                    <a href="{{ url('/login') }}">Entrar</a>
+                    <a href="{{ url('/register') }}">Registro</a>
+
+            </div>
+
 
             <div class="content">
                 <div class="title m-b-md">
-                    Espe :)
-                </div>
+                    <br>
+                         Consulta de podología FootCare
+
+                    </div>
+
+                <?php
+
+                echo '<center><img src="..\images\logoclin.png" width="220" height="150" align="center" /> </center> '
+                ?>
+                <br>
+                <table>
+                    <th>
+                    <pre>
+
+                                .............................................................................................................
+
+                    </pre>
+                    </th>
+
+
+                </table>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://homestead.app/descripcion">Descripción</a>
+                    <a href="https://homestead.app/citas">Citas</a>
+                    <a href="https://www.onmeda.es/foros/podología">Foro</a>
+                    <a href="https://es-es.facebook.com/HospitalFootCare/">Nuestro Facebook</a>
+                    <a href="https://homestead.app/contacto">Contacto</a>
+
                 </div>
+
+                <table>
+                    <th>
+                    <pre>
+
+
+                                .............................................................................................................
+                    </pre>
+                    </th>
+                </table>
+
+            <div class="copyright" >
+                   <B>
+                   <p>Designed by: Esperanza Mejías Muñoz; Contact: <a href="mailto:espemejia.m@gmail.com"> espemejia.m@gmail.com</a></p>
+                   </B>
+
+
+                </div>
+
             </div>
         </div>
     </body>
